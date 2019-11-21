@@ -1,0 +1,85 @@
+路由系统：
+vue制作的是一个单页应用， 页面上某一部分会经常变化.
+这个变化的部分 就可以使用路由系统来制作
+
+重要的代码：
+<router-view></router-view>
+此标签会被替换成路由指定的组件
+
+路由会指定 哪个路径 对应哪个 组件
+路由的路径样式： #/xxx
+
+跳转时， 使用router-link 标签， 这个标签就是a标签
+<router-link to="/about"></router-link>
+vue处理之后， 会转化成超链接
+<a href="#/about"></a>
+
+这个配置项， 就代表 /about 对应的是 About.vue组件
+{
+  path="/about",
+  component:About
+}
+
+
+================================================
+vue中 axios 的用法
+axios就是 ajax相同的技术， 做异步网络加载
+
+制作公司动态页面：
+pages/News.vue  组件,用于写页面
+
+在Header中指定 公司动态按钮的 点击操作
+
+router.js 中配置,  /about 对应 News.vue
+
+
+公司动态页面的接口地址:
+http://www.codeboy.com/mfresh/data/news_select.php
+
+参数有: pageNum=1
+
+
+发送网络请求使用 axios
+此模块需要运行命令来安装, 在你项目目录下执行
+npm install --save axios vue-axios
+
+到 main.js 中 引入 axios 模块, 
+并且进行一些初始化设置
+
+
+==================================
+改动的代码有:  fpt://vuepro 中 有
+main.js
+pages/News.vue 中的 script 部分, 有很多改动
+
+测试之后, 控制台中有打印的返回数据, 就说明争取了
+
+在Network中查看, 刷新查看
+
+==============================
+路由跳转带参数方式: 例如带有 nid=12 参数
+<router-link to="/productDetail/12"></router-link>
+此写法必须配合 router.js中的配置
+{
+  path: "/productDetail/:nid"
+}
+
+第二种:
+<router-link :to="{name:"productDetail", params:{nid:12}}"></router-link>
+
+此跳转必须配合 router.js 的配置
+{
+  name: "productDetail",
+  path: "/productDetail",
+  component:xxx
+}
+
+第三种:
+<router-link :to="{name:"productDetail", query:'nid=12'"></router-link>
+
+此跳转必须配合 router.js 的配置
+{
+  name: "productDetail",
+  path: "/productDetail",
+  component:xxx
+}

@@ -1,0 +1,14 @@
+可以通过 google 等浏览器提供的 后台工具, 来查看一个网页发送的所有接口
+例如  http://www.codeboy.com/mfresh/news.html
+
+访问此页面, F12 或者 右键检查
+来到 Network 功能项, 刷新页面, 可以在Network信息列表中看到当前页面发送的所有网络请求
+其中我们的服务器是 php 的, 所以发送的数据相关请求是  是.php 结尾的文件
+即 news_select.php 
+点击 news_select.php 选项, 在右侧就可以看到请求的详细信息
+
+Header中的Request URL 就是请求的地址
+
+Header页面最下方有一个 form data, 其中包含了请求的参数
+
+Preview 项  和 response 项目中, 显示了请求的返回值

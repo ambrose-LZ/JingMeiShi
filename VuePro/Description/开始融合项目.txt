@@ -1,0 +1,54 @@
+1. 把mfresh项目中的所有资源拷贝一份到我们的
+mypro项目的中, 放在 src/assets 文件夹下
+
+mypro\src\assets
+--css
+--images
+--news_imgs
+--product_imgs
+
+=====================================
+通常网站都要先制作首页, 找到首页 index.html
+
+先复制最少的, header.html
+通常一个网站的头,脚,侧边栏都是公用
+
+对于网站上公共的代码, 应该提取成小组件
+所以在, 组件的文件名要求大写开头(编码规范)
+src/components/Header.vue
+
+按照固定格式, 把 header.html 内容 融合到 Header.vue 中
+
+此时 Header.vue 和 自带的HelloWorld.vue 在一起
+尝试把src/App.vue中的 HelloWorld 替换成 Header
+
+在 style中引入所有的样式
+
+
+在 ftp 上, vuepro 中, 存放了修改的文件和笔记
+
+把 脚部 Footer文件也融合到项目中
+1. 在 src/components/Footer.vue
+2. 把footer.html代码粘贴到Footer.vue 的 template中
+3. 在App.vue中 添加Footer有关的代码
+
+=========================================
+同理, 尝试把首页代码也融合进来
+注意: 首页代码不是复用的, 不能和header footer放一起
+
+新建pages文件夹, 专门放单个页面组件
+在 src/pages/Index.vue
+把 index.html 中的主体内容 , 即 头 和 脚 中间的部分, 存放在 template 中
+然后在 App.vue 中, 按照 Header 和 Footer 相似的方式, 把Index.vue 添加进去
+
+会报错, 因为Eslint有格式要求, 需要到Index.vue修改报错行, 把文字中间的空格删除掉才可以
+
+==================================================
+
+遗留的问题:
+1. 主页的图片不显示: 因为图片路径有变化
+2. CSS中的background图片, 路径必须用css来写, 这个操作与webpack的打包机制有关
+3. 中间页面在点击头部栏目时, 需要进行切换操作.  此操作必须通过vue的路由机制来解决
+
+以上问题都需要 下回分解!
+

@@ -1,0 +1,26 @@
+今日内容：
+1. vue中动画的展示 -过渡效果
+
+适合封装单个标签的动画
+<transition></transition>
+
+适合封装多个标签的动画
+<transition-group></transition-group>
+
+
+webpack的对图片的打包机制:
+
+webpack有一个好处: 会在打包时先阅读所有的代码, 把用到的图片打包起来, 放在dist目录中.
+没有写路径的图片 就不会打包
+
+此处vue提供一个打包命令
+npm run build
+
+打包之后的代码会放在 dist 目录下
+
+导致的问题: 如果图片的地址是通过网络动态加载生成的, 则webpack打包的时候不会打包到项目中, 导致图片无效
+
+vue的目录中有一个 public 的文件夹
+放在这个文件夹下的内容, 忽略webpack的检查机制. 都会被打包起来
+
+把 src/assets 下方 几个带有 imgs 名字的文件夹拷贝到 public 下方, 即可忽略webpack检查 进行打包
